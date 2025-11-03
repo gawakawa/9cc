@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "nixos": {
+      "args": [],
+      "command": "/nix/store/29rjcx141992d2jngcmzxk58cyaifr3j-mcp-nixos-1.0.3/bin/mcp-nixos",
+      "env": {}
+    },
+    "serena": {
+      "args": [
+        "start-mcp-server"
+      ],
+      "command": "/nix/store/4hz02qbqr2696z0y9m4hv5ch7hdy9vab-serena-0.1.4-unstable-2025-10-31/bin/serena",
+      "env": {}
+    }
+  }
+}
