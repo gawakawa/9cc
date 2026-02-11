@@ -58,3 +58,7 @@ dkms.conf
 
 /.direnv/
 result
+.mcp.json
+.pre-commit-config.yaml
+tmp
+tmp.s
