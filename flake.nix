@@ -5,7 +5,6 @@
     nixpkgs.url = "nixpkgs/nixos-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
     treefmt-nix.url = "github:numtide/treefmt-nix";
-    mcp-servers-nix.url = "github:natsukium/mcp-servers-nix";
   };
 
   outputs =
@@ -30,14 +29,6 @@
           system,
           ...
         }:
-        let
-          mcpConfig = inputs.mcp-servers-nix.lib.mkConfig pkgs {
-            programs = {
-              nixos.enable = true;
-              serena.enable = true;
-            };
-          };
-        in
         {
           packages."9cc" = pkgs.stdenv.mkDerivation {
             pname = "9cc";
@@ -59,19 +50,12 @@
 
           packages.default = config.packages."9cc";
 
-          packages.mcp-config = mcpConfig;
-
           overlayAttrs = {
             inherit (config.packages) "9cc";
           };
 
           devShells.default = pkgs.mkShell {
             inputsFrom = [ config.packages."9cc" ];
-
-            shellHook = ''
-              cat ${mcpConfig} > .mcp.json
-              echo "Generated .mcp.json"
-            '';
           };
 
           checks = {
