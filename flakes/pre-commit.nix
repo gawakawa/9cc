@@ -7,6 +7,7 @@ _: {
         statix.enable = true;
         deadnix.enable = true;
         actionlint.enable = true;
+        clang-tidy.enable = true;
         workflow-timeout = {
           enable = true;
           name = "Check workflow timeout-minutes";
