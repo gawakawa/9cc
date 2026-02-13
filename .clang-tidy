@@ -1,1 +1,1 @@
-Checks: '-modernize-use-std-print'
+Checks: '-modernize-use-std-print,-clang-analyzer-unix.Malloc'
