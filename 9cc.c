@@ -72,7 +72,7 @@ void error_at(char *loc, char *fmt, ...) {
   fprintf(stderr, "%*s", pos, " ");
   fprintf(stderr, "^ ");
   vfprintf(stderr, fmt, ap);
-  fputs("\n", stderr);
+  fprintf(stderr, "\n");
   exit(1);
 }
 
