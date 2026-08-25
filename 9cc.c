@@ -359,5 +359,8 @@ int main(int argc, char **argv) {
   // それを RAX にロードして関数からの返り値にする
   printf("  pop rax\n");
   printf("  ret\n");
+
+  // 実行可能スタックとみなされないよう明示する
+  printf(".section .note.GNU-stack,\"\",@progbits\n");
   return 0;
 }
