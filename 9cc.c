@@ -49,6 +49,14 @@ Node *new_code(NodeKind kind, Node *lhs, Node *rhs) {
   return node;
 }
 
+Node *new_node(NodeKind kind, Node *lhs, Node *rhs) {
+  Node *node = calloc(1, sizeof(Node));
+  node->kind = kind;
+  node->lhs = lhs;
+  node->rhs = rhs;
+  return node;
+}
+
 Node *new_node_num(int val) {
   Node *node = calloc(1, sizeof(Node));
   node->kind = ND_NUM;
@@ -168,6 +176,7 @@ Node *primary() {
 
 Node *mul() {
   Node *node = primary();
+
   for (;;) {
     if (consume('*')) {
       node = new_code(ND_MUL, node, primary());
@@ -181,6 +190,7 @@ Node *mul() {
 
 Node *expr() {
   Node *node = mul();
+
   for (;;) {
     if (consume('+')) {
       node = new_code(ND_ADD, node, mul());
